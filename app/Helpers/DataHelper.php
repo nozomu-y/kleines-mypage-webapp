@@ -27,7 +27,8 @@ function callApi($path, $method, $var_body, $var_query, $jwt_token_required = tr
 
     $request_url = config('services.kleines_mypage_api_url') . ltrim($path, '/');
     $response = $client->request($method, $request_url, ['body' => json_encode($var_body), 'query' => $var_query, 'http_errors' => false]);
-    $result = json_decode($response->getBody());
+    $result = new stdClass();
+    $result->data = json_decode($response->getBody());
     $result->code = $response->getStatusCode();
     return $result;
 }
