@@ -12,7 +12,14 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Member\HomeController;
 
-Route::get('/', function () {
-    return view('welcome');
+Route::group(['middleware' => 'guest'], function () {
+    Route::get('login', [LoginController::class, 'index'])->name('login');
+    Route::post('login', [LoginController::class, 'login']);
+});
+
+Route::group(['middleware' => 'member'], function () {
+    Route::get('/', [HomeController::class, 'index'])->name('home');
 });
