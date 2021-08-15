@@ -30,4 +30,5 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    'kleines_mypage_api_url' => env('KLEINES_MYPAGE_API_URL'),
 ];
