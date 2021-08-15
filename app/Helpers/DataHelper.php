@@ -1,6 +1,7 @@
 <?php
 
 use GuzzleHttp\Client;
+use Illuminate\Http\Exceptions\HttpResponseException;
 
 /**
  * Call API
@@ -30,5 +31,9 @@ function callApi($path, $method, $var_body, $var_query, $jwt_token_required = tr
     $result = new stdClass();
     $result->data = json_decode($response->getBody());
     $result->code = $response->getStatusCode();
+
+    if ($result->code == 400 && $result->data->Error == "Token Not Valid") {
+        throw new HttpResponseException(redirect()->route('logout'));
+    }
     return $result;
 }
