@@ -13,7 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Member\HomeController;
+
+Route::get('logout', [LogoutController::class, 'logout'])->name('logout');
 
 Route::group(['middleware' => 'guest'], function () {
     Route::get('login', [LoginController::class, 'index'])->name('login');
