@@ -3,7 +3,7 @@
         <div class="sidebar-brand-icon">
             <i class="fas fa-music"></i>
         </div>
-        <div class="sidebar-brand-text mx-3">Kleines Mypage</div>
+        <div class="sidebar-brand-text mx-3">{{ __('app_name') }}</div>
     </a>
     <hr class="sidebar-divider my-0">
     <!-- nav item -->
