@@ -30,7 +30,8 @@ class LoginController extends Controller
         }
 
         return redirect()->route('login')->with([
-            'error' => 'Wrong email or password.'
+            'invalid' => 'Wrong email or password.',
+            'email' => $email
         ]);
     }
 }
