@@ -37,3 +37,13 @@ function callApi($path, $method, $var_body, $var_query, $jwt_token_required = tr
     }
     return $result;
 }
+
+/**
+ * Format price as string
+ * @param $price int
+ * @return string
+ */
+function format_price($price)
+{
+    return '￥' . number_format($price);
+}
