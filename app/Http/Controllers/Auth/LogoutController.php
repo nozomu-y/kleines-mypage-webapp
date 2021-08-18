@@ -9,8 +9,7 @@ class LogoutController extends Controller
 {
     function logout(Request $request)
     {
-        session()->forget('jwt_token');
-        session()->forget('user_id');
+        session()->invalidate();
         return redirect()->route('login');
     }
 }
