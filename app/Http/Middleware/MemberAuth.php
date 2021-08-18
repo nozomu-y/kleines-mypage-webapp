@@ -21,6 +21,12 @@ class MemberAuth
             session()->forget('user_id');
             return redirect()->route('login');
         }
+
+        if (!session()->has('display_name')) {
+            $result = callApi('/profile/me', 'get', null, null);
+            session()->put('display_name', $result->data->grade . $result->data->part . ' ' . $result->data->last_name . $result->data->first_name);
+        }
+
         return $next($request);
     }
 }

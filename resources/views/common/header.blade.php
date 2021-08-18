@@ -14,7 +14,7 @@
         <!-- Nav Item - User Information -->
         <li class="nav-item dropdown no-arrow">
             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="mr-2 text-gray-600 small"></span>
+                <span class="mr-2 text-gray-600 small">{{ session('display_name') }}</span>
                 <i class="fas fa-user fa-fw"></i>
             </a>
             <!-- Dropdown - User Information -->
