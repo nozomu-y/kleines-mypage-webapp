@@ -6,5 +6,8 @@
     "login_invalid": "メールアドレスまたはパスワードが間違っています",
     "password_issue": "パスワードの発行",
     "password_issue_complete": "パスワードの設定が完了しました",
+    "individual_accounting": "個別会計",
+    "individual_accounting_total": "個別会計総額",
+    "delinquent": "滞納額",
     "EOF": "EOF"
 }
