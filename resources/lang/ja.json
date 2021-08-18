@@ -3,7 +3,8 @@
     "login": "ログイン",
     "email": "メールアドレス",
     "password": "パスワード",
-    "login_invalid": "メールアドレス・パスワードが間違っています",
+    "login_invalid": "メールアドレスまたはパスワードが間違っています",
     "password_issue": "パスワードの発行",
+    "password_issue_complete": "パスワードの設定が完了しました",
     "EOF": "EOF"
 }

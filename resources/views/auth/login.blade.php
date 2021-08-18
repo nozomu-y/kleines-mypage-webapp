@@ -8,11 +8,18 @@
         <h1 class="h4 text-gray-900 mb-4">{{ __('app_name') }}</h1>
     </div>
 
+    @if (session()->has('message'))
+        <div class="alert alert-info alert-dismissible fade show mt-3" role="alert">
+            {{ session('message') }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        </div>
+    @endif
+
     @if (!isset($maintenance) || !$maintenance)
         {{ Form::open(['url' => 'login', 'method' => 'post', 'class' => 'user']) }}
         <div class="form-group">
-            {{ Form::email('email', null, [
-                'class' => 'form-control form-control-user' . (session()->has('invalid') ? 'is-invalid' : ''),
+            {{ Form::email('email', session()->has('email') ? session('email') : null, [
+                'class' => 'form-control form-control-user' . (session()->has('invalid') ? ' is-invalid' : ''),
                 'autocomplete' => 'email',
                 'id' => 'email',
                 'placeholder' => __('email'),
@@ -21,7 +28,7 @@
         </div>
         <div class="form-group">
             {{ Form::password('password', [
-                'class' => 'form-control form-control-user' . (session()->has('invalid') ? 'is-invalid' : ''),
+                'class' => 'form-control form-control-user' . (session()->has('invalid') ? ' is-invalid' : ''),
                 'autocomplete' => 'current-password',
                 'id' => 'password',
                 'placeholder' => __('password'),
@@ -51,13 +58,6 @@
             </p>
         </div>
     @endif
-    {{-- <?php
-if ($mypage_password_success) {
-    echo '<div class="alert alert-success alert-dismissible fade show mt-3" role="alert">';
-    echo 'パスワードの設定が完了しました。';
-    echo '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>';
-    echo '</div>';
-}
-?> --}}
+
 </div>
 @endsection
