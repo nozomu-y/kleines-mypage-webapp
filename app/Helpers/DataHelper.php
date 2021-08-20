@@ -32,7 +32,7 @@ function callApi($path, $method, $var_body, $var_query, $jwt_token_required = tr
     $result->data = json_decode($response->getBody());
     $result->code = $response->getStatusCode();
 
-    if ($result->code == 400 && $result->data->Error == "Token Not Valid") {
+    if ($result->code == 400 && $result->data->message == "Token Not Valid") {
         throw new HttpResponseException(redirect()->route('logout'));
     }
     return $result;
