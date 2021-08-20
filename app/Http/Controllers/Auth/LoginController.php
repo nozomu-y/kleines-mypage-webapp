@@ -24,7 +24,6 @@ class LoginController extends Controller
         ];
         $result = callApi('/auth', 'post', $body, null, false);
 
-        dd($result);
         if ($result->code == 200) {
             session()->put('jwt_token', 'Bearer ' . $result->data->token);
             session()->put('user_id', $result->data->user_id);
