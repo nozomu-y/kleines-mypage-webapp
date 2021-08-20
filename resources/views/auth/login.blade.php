@@ -15,6 +15,13 @@
         </div>
     @endif
 
+    @if (session()->has('error'))
+        <div class="alert alert-danger alert-dismissible fade show mt-3" role="alert">
+            {{ session('error') }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        </div>
+    @endif
+
     @if (!isset($maintenance) || !$maintenance)
         {{ Form::open(['url' => 'login', 'method' => 'post', 'class' => 'user']) }}
         <div class="form-group">

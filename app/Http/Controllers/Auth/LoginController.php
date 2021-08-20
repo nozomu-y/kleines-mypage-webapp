@@ -33,6 +33,13 @@ class LoginController extends Controller
             return redirect()->route('home');
         }
 
+        // Do not allow login of resigned users
+        if ($result->message == 'Login of Resigned User Not Allowed') {
+            return redirect()->route('login')->with([
+                'error' => __('message.login.resigned_user')
+            ]);
+        }
+
         return redirect()->route('login')->with([
             'invalid' => 'Wrong email or password.',
             'email' => $email
